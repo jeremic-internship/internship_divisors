@@ -65,21 +65,32 @@ int main(){
 	
 	}
 
+	ofstream divisorFile;
+  	divisorFile.open ("divisors.res");
+
 	for(int i = 0; i < primefactors.size()-1; i++){
 		divisors.push_back(1);
-		
+
 		for(int z = 1; z < primefactors[i][0].size(); z++){
 			go(primefactors[i][0], 0, z);
 		}
 
 		divisors.push_back(primefactors[i][1][0]);
 
+		divisorFile << "All the divisors of " << primefactors[i][1][0] << " are ";
+
 		for(int i = 0; i < divisors.size(); i++){
-			cout << divisors[i] << " ";
+			if (i != 0) {
+				divisorFile << ", ";
+			}
+			divisorFile << divisors[i];
 		}
-		cout << "\n";
+		divisorFile << "\n";
 		divisors.clear();
 	}
+
+	divisorFile.close();
+  	return 0;
 
 }
 	
