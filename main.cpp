@@ -4,19 +4,19 @@
 #include <algorithm>
 #include <sstream>
 
-std::vector< std::vector< std::vector< int > > > primefactors;
-std::vector <int> combination;
+std::vector<std::vector<std::vector<int>>> primefactors;
+std::vector<int> combination;
 std::vector<int> divisors;
 
 
-std::vector < int > addObjectToVector(std::vector <int> startVector, int num) {
+std::vector<int> addObjectToVector(std::vector<int> startVector, int num) {
 	if (std::find(startVector.begin(), startVector.end(), num) == startVector.end()) {
 		startVector.push_back(num);
 	}
 	return startVector;
 }
 
-void go(std::vector <int> factors, int offset, int k) {
+void go(std::vector<int> factors, int offset, int k) {
 	if (k == 0) {
 		int total = 1;
 		for (int i = 0; i < combination.size(); i++) {
@@ -70,10 +70,10 @@ int main() {
 		getline(infile, line);
 		std::stringstream test(line);
 		std::string segment;
-		std::vector < std::vector < int > > seglist;
+		std::vector<std::vector<int>> seglist;
 		while (std::getline(test, segment, '='))
 		{
-			std::vector < int > tempvector;
+			std::vector<int> tempvector;
 			std::string newSegment = segment;
 			newSegment.erase(std::remove(newSegment.begin(), newSegment.end(), ' '), newSegment.end());
 			std::string starsegment;
