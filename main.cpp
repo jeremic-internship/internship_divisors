@@ -34,7 +34,9 @@ void go(std::vector<int> factors, int offset, int k) {
 
 void writeDivisorsToFile(std::string filename) {
 	std::ofstream divisorFile;
-	divisorFile.open ("divisors.res");
+	divisorFile.open(filename);
+
+	divisorFile << primefactors.size() - 1 << '\n';
 
 	for (int i = 0; i < primefactors.size() - 1; i++) {
 		divisors.push_back(1);
